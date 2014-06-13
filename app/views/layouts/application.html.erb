@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PermacultureAnalysisTool</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.10.4.custom.css', media: 'all','data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'js/jquery-ui-1.10.4.custom.js', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <script>
+      $(function() {
+          $( "#slider-vertical" ).slider({
+              orientation: "vertical",
+              range: "min",
+              min: 0,
+              max: 100,
+              value: 60,
+              slide: function( event, ui ) {
+                  $( "#amount" ).val( ui.value );
+              }
+          });
+          $( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
+      });
+  </script>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
