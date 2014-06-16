@@ -24,7 +24,7 @@ RSpec.describe ProjectsController, :type => :controller do
   # Project. As you add validations to Project, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {'name' => 'Projects Must Be Named'}
   }
 
   let(:invalid_attributes) {
