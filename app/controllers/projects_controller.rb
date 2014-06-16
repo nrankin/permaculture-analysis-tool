@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  include ActiveModel::ForbiddenAttributesProtection
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects

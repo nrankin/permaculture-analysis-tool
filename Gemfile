@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-group :test do
+group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'factory_girl_rails'
 end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
