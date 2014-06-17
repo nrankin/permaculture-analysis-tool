@@ -102,15 +102,16 @@ RSpec.describe ProjectsController, :type => :controller do
 
   describe "PUT update" do
     describe "with valid params" do
+      updatedName = 'Updated Name'
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {'name' => updatedName}
       }
 
       it "updates the requested project" do
         project = Project.create! valid_attributes
         put :update, {:id => project.to_param, :project => new_attributes}, valid_session
         project.reload
-        skip("Add assertions for updated state")
+        expect(project.name).to eql(updatedName)
       end
 
       it "assigns the requested project as @project" do
