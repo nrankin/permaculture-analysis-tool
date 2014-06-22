@@ -7,5 +7,12 @@ RSpec.describe "projects/show", :type => :view do
 
   it "renders attributes in <p>" do
     render
+    expect(rendered).to include("Project Name:")
   end
+  it "renders slider for 'Observe & Interact'" do
+    render
+    expect(rendered).to include("slider-vertical")
+    expect(rendered).to include('Observe & Interact')
+  end
+
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :project do
     id 1
-    name 'Factory Project Name'
+    name 'Permaculture Home Design'
   end
 end

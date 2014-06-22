@@ -4,23 +4,50 @@
   <title>PermacultureAnalysisTool</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.10.4.custom.css', media: 'all','data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'js/jquery-ui-1.10.4.custom.js', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.10.4.custom.css', media: 'all'%>
+  <%= javascript_include_tag 'js/jquery-ui-1.10.4.custom.js' %>
   <%= csrf_meta_tags %>
 
   <script>
       $(function() {
-          $( "#slider-vertical" ).slider({
+          $( "#slider-vertical1" ).slider({
               orientation: "vertical",
               range: "min",
               min: 0,
               max: 100,
               value: 60,
               slide: function( event, ui ) {
-                  $( "#amount" ).val( ui.value );
+                  $( "#ObserveAndInteract" ).val( ui.value );
               }
           });
-          $( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
+          $( "#ObserveAndInteract" ).val( $( "#slider-vertical1" ).slider( "value" ) );
+      });
+
+      $(function() {
+          $( "#slider-vertical2" ).slider({
+              orientation: "vertical",
+              range: "min",
+              min: 0,
+              max: 100,
+              value: 60,
+              slide: function( event, ui ) {
+                  $( "#CatchAndStoreEnergy" ).val( ui.value );
+              }
+          });
+          $( "#CatchAndStoreEnergy" ).val( $( "#slider-vertical2" ).slider( "value" ) );
+      });
+      $(function() {
+          $( "#ObtainAYeild_slider" ).slider({
+              orientation: "vertical",
+              range: "min",
+              min: 0,
+              max: 100,
+              value: 60,
+              slide: function( event, ui ) {
+                  $( "#ObtainAYeild" ).val( ui.value );
+              }
+          });
+          $( "#ObtainAYeild" ).val( $( "#ObtainAYeild_slider" ).slider( "value" ) );
       });
   </script>
 </head>
