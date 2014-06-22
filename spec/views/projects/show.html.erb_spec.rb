@@ -11,7 +11,6 @@ RSpec.describe "projects/show", :type => :view do
   end
   it "renders slider for 'Observe & Interact'" do
     render
-    expect(rendered).to include("slider-vertical")
     expect(rendered).to include('Observe & Interact')
   end
 
