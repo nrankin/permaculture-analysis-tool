@@ -1,0 +1,2 @@
+class ValueSetsController < ApplicationController
+end

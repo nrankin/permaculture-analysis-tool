@@ -13,5 +13,9 @@ RSpec.describe "projects/show", :type => :view do
     render
     expect(rendered).to include('Observe & Interact')
   end
+  it "renders the project snapshot date" do
+    render
+    expect(rendered).to include("Snapshot Date:")
+  end
 
 end

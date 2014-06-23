@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613004932) do
+ActiveRecord::Schema.define(version: 20140623010208) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "value_sets", force: true do |t|
+    t.string   "name"
+    t.integer  "project_id"
+    t.datetime "snapshot"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "value_sets", ["project_id"], name: "index_value_sets_on_project_id"
 
 end
