@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        @value_set = @project.value_sets.create({name: "Project Inception",snapshot: DateTime.now})
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else

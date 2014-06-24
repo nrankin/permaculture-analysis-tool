@@ -5,6 +5,7 @@
   <strong>Project Name:</strong>
   <%= @project.name %>
   <strong>Snapshot Date:</strong>
+  <%= latest_snapshot_date(@project).strftime("%F %T") %>
 </p>
 <table>
   <tr>
