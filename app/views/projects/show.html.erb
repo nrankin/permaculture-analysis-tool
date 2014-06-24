@@ -7,34 +7,7 @@
   <strong>Snapshot Date:</strong>
   <%= latest_snapshot_date(@project).strftime("%F %T") %>
 </p>
-<table>
-  <tr>
-    <td>
-      <div id="ObserveAndInteract_id" style="height:200px;"></div>
-      <p>
-        <lable for:"ObserveAndInteract">Observe & Interact</lable>
-        <input type="text" id="ObserveAndInteract" style="border:0; color:#f6931f; font-weight:bold;">
-      </p>
-    </td>
-    <td>
-      <div id="CatchAndStoreEnergy_id" style="height:200px;"></div>
-      <p>
-        <lable for:"CatchAndStoreEnergy">Catch & Store Energy</lable>
-        <input type="text" id="CatchAndStoreEnergy" style="border:0; color:#f6931f; font-weight:bold;">
-      </p>
-    </td>
-    <td>
-      <div id="ObtainAYeild_id" style="height:200px;"></div>
-      <p>
-        <lable for:"ObtainAYeild">Obtain A Yeild</lable>
-        <input type="text" id="ObtainAYeild" style="border:0; color:#f6931f; font-weight:bold;">
-      </p>
-    </td>
-  </tr>
-</table>
-
-
-
+<%= render :partial => 'value_set.html.erb' %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
