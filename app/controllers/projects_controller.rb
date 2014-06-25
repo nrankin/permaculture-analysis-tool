@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  include ProjectsHelper
   include ActiveModel::ForbiddenAttributesProtection
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -11,6 +12,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @value_set = latest_value_set(@project)
+
   end
 
   # GET /projects/new

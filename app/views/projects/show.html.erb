@@ -7,7 +7,8 @@
   <strong>Snapshot Date:</strong>
   <%= latest_snapshot_date(@project).strftime("%F %T") %>
 </p>
-<%=  render latest_value_set(@project) %>
+<% @value_set =  latest_value_set(@project) %>
+<%=  render @value_set  %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

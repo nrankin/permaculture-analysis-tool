@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623010208) do
+ActiveRecord::Schema.define(version: 20140625022004) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -28,5 +28,14 @@ ActiveRecord::Schema.define(version: 20140623010208) do
   end
 
   add_index "value_sets", ["project_id"], name: "index_value_sets_on_project_id"
+
+  create_table "values", force: true do |t|
+    t.integer  "value"
+    t.integer  "value_set_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "values", ["value_set_id"], name: "index_values_on_value_set_id"
 
 end
