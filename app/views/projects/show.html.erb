@@ -7,7 +7,7 @@
   <strong>Snapshot Date:</strong>
   <%= latest_snapshot_date(@project).strftime("%F %T") %>
 </p>
-<%= render :partial => 'value_set.html.erb' %>
+<%=  render latest_value_set(@project) %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
