@@ -1,6 +1,6 @@
 function pp_slider(name, value)           {
     $(function() {
-        $( name + "_id" ).slider({
+        $( "#" + name ).slider({
             orientation: "vertical",
             range: "min",
             min: 0,
@@ -10,6 +10,6 @@ function pp_slider(name, value)           {
                 $( name ).val( ui.value );
             }
         });
-        $( name ).val( $(name + "_id").slider( "value" ) );
+        $( name ).val( $("#" +name).slider( "value" ) );
     });
 }

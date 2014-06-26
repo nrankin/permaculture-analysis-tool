@@ -12,13 +12,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @value_set = latest_value_set(@project)
-
   end
 
   # GET /projects/new
   def new
     @project = Project.new
+
   end
 
   # GET /projects/1/edit
@@ -33,6 +32,10 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         @value_set = @project.value_sets.create({name: "Project Inception",snapshot: DateTime.now})
+        @value = @value_set.values.create({value: 0, element_id: 1})
+        @value2 = @value_set.values.create({value: 10,  element_id: 2})
+        @value3 = @value_set.values.create({value: 50,  element_id: 3})
+
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
@@ -70,6 +73,10 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+    end
+
+    def get_value_set
+      @value_set = latest_value_set(@project)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

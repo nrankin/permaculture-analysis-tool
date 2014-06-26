@@ -1,3 +1,14 @@
 <div id="value_set">
-   <%= render :partial => '/value_sets/value' %>
+  <p>
+    <strong>Snapshot Date:</strong>
+    <%= latest_snapshot_date(@project).strftime("%F %T") %>
+  </p>
+  <table>
+    <tr>
+  <% @value_set.values.each do |value| %>
+   <%= render value  %>
+  <% end %>
+
+  </tr>
+  </table>
 </div>

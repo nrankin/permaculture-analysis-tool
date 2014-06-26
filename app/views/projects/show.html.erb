@@ -4,11 +4,11 @@
 <p>
   <strong>Project Name:</strong>
   <%= @project.name %>
-  <strong>Snapshot Date:</strong>
-  <%= latest_snapshot_date(@project).strftime("%F %T") %>
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>
 </p>
 <% @value_set =  latest_value_set(@project) %>
+<%= 'name of value set: ' + @value_set.name %>
 <%=  render @value_set  %>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+

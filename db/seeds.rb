@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+elements = Element.create([{name: 'ObserveAndInteract', element_type:'Principle'},
+                          {name: 'CatchAndStoreEnergy', element_type:'Principle'},
+                          {name: 'ObtainAYield', element_type: 'Principle'}])

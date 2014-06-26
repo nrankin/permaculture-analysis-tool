@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625022004) do
+ActiveRecord::Schema.define(version: 20140625234925) do
+
+  create_table "elements", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "element_type"
+  end
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -34,8 +41,10 @@ ActiveRecord::Schema.define(version: 20140625022004) do
     t.integer  "value_set_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "element_id"
   end
 
+  add_index "values", ["element_id"], name: "index_values_on_element_id"
   add_index "values", ["value_set_id"], name: "index_values_on_value_set_id"
 
 end
