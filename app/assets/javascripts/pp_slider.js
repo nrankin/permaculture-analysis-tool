@@ -1,4 +1,5 @@
-function pp_slider(name, value)           {
+function pp_slider(name, value, enabled){
+
     $(function() {
         $( "#" + name ).slider({
             orientation: "vertical",
@@ -10,6 +11,25 @@ function pp_slider(name, value)           {
                 $( name ).val( ui.value );
             }
         });
-        $( name ).val( $("#" +name).slider( "value" ) );
+        if(enabled) {
+            $("#" +name).slider( "enable");
+        } else {
+            $("#" +name).slider( "disable");
+        }
+        $( name ).val( $("#" +name).slider( "value") );
     });
+}
+function all_sliders(enabled){
+    $(pp_slider("ObserveAndInteract", 0, enabled))
+    $(pp_slider("CatchAndStoreEnergy", 0, enabled))
+    $(pp_slider("ObtainAYield", 0, enabled))
+    $(pp_slider("ApplySelfRegulationAndAcceptFeedback", 0, enabled))
+    $(pp_slider("UseAndValueRenewableResourcesAndServices", 0, enabled))
+    $(pp_slider("ProduceNoWaste", 0, enabled))
+    $(pp_slider("DesignFromPatternsToDetails", 0, enabled))
+    $(pp_slider("IntegrateRatherThanSegregate", 0, enabled))
+    $(pp_slider("UseSmallAndSlowSolutions", 0, enabled))
+    $(pp_slider("UseAndValueDiverstiy", 0, enabled))
+    $(pp_slider("UseEdgesAndValueTheMarginal", 0, enabled))
+    $(pp_slider("CreativelyUseAndRespondToChange", 0, enabled))
 }

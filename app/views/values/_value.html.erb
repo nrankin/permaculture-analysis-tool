@@ -1,11 +1,14 @@
-  <td width="8%" align="center" valign="top">
+<script>
+    all_sliders(true)
+</script>
+<td width="8%" align="center" valign="top">
     <% element = value.element  %>
+
     <% if !element.nil? %>
-      <% slider_name = element.name %>
         <div id="value">
-        <div id="<%= slider_name %>" style="height:200px;"></div>
+        <div id="<%= element.name %>" style="height:200px;"></div>
         <p>
-          <lable for:"<%= slider_name %>"><%= t slider_name %></lable>
+          <lable for:"<%= element.name %>"><%= t element.name %></lable>
         </p>
         </div>
      <% end %>
