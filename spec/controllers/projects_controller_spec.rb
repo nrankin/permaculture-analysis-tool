@@ -81,6 +81,16 @@ RSpec.describe ProjectsController, :type => :controller do
         expect(assigns(:project)).to be_persisted
       end
 
+      it "creates an initial value set for the project" do
+        post :create, {:project => valid_attributes}, valid_session
+        expect(assigns(:project).value_sets).to_not be_nil
+      end
+      it "creates a default set of values for the projects initial value set" do
+        FactoryGirl.create_list(:element, 12)
+        post :create, {:project => valid_attributes}, valid_session
+        expect(assigns(:project).value_sets.first.values.count).to eq(12)
+      end
+
       it "redirects to the created project" do
         post :create, {:project => valid_attributes}, valid_session
         expect(response).to redirect_to(Project.last)

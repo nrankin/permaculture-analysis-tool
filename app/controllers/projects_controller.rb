@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   include ProjectsHelper
+  include ValueSetMaker
   include ActiveModel::ForbiddenAttributesProtection
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -31,10 +32,8 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        @value_set = @project.value_sets.create({name: "Project Inception",snapshot: DateTime.now})
-        @value = @value_set.values.create({value: 0, element_id: 1})
-        @value2 = @value_set.values.create({value: 10,  element_id: 2})
-        @value3 = @value_set.values.create({value: 50,  element_id: 3})
+
+        create_initial_value_set(@project)
 
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
@@ -44,6 +43,8 @@ class ProjectsController < ApplicationController
       end
     end
   end
+
+
 
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
