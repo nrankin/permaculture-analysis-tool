@@ -15,14 +15,7 @@
       <%= f.text_field :name %><br>
     </div>
     <div>
-        <table>
-          <tr>
-            <% @value_set.values.each do |value| %>
-                <%= render value  %>
-            <% end %>
-
-          </tr>
-        </table>
+    <%= render 'value_set_table' %>
     </div>
 
     <div class="actions">

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "value_sets/edit", :type => :view do
   before(:each) do
-      @value_set = assign(:value_set1, FactoryGirl.create(:value_set, snapshot: DateTime.new(2014,06,22,1,0,5)))
+      @value_set = assign(:value_set1, FactoryGirl.create(:value_set))
       @project = @value_set.project
   end
 
