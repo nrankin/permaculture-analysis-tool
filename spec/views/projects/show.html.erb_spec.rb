@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "projects/show", :type => :view do
-  SNAPSHOT_DATE = DateTime.new(2014,06,22,1,0,5)
+
   before(:each) do
-    @value_set = assign(:value_set1, FactoryGirl.create(:value_set, snapshot: SNAPSHOT_DATE))
+    @value_set = assign(:value_set, FactoryGirl.create(:value_set))
     @project = @value_set.project
   end
 
@@ -11,15 +11,4 @@ RSpec.describe "projects/show", :type => :view do
     render
     expect(rendered).to include("Project Name:")
   end
-
-  it "renders the project snapshot date" do
-    render
-    expect(rendered).to include(SNAPSHOT_DATE.strftime("%F"))
-  end
-
-  it "renders the project snapshot time" do
-    render
-    expect(rendered).to include(SNAPSHOT_DATE.strftime("%T"))
-  end
-
 end

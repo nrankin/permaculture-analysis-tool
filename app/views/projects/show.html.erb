@@ -8,7 +8,6 @@
   <%= link_to 'Back', projects_path %>
 </p>
 <% @value_set =  latest_value_set(@project) %>
-<%= 'name of value set: ' + @value_set.name %>
-<%=  render @value_set  %>
+<%= render @value_set %>
 
 

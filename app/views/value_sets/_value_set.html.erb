@@ -1,14 +1,16 @@
+<script>
+    all_sliders(false)
+</script>
 <div id="value_set">
-  <p>
-    <strong>Snapshot Date:</strong>
-    <%= latest_snapshot_date(@project).strftime("%F %T") %>
-  </p>
+  <%= render 'value_sets/head' %>
+  <strong>Snapshot Name: </strong><%= @value_set.name %>
   <table>
     <tr>
-  <% @value_set.values.each do |value| %>
-   <%= render value  %>
-  <% end %>
-
-  </tr>
+      <% @value_set.values.each do |value| %>
+       <%= render value  %>
+      <% end %>
+    </tr>
   </table>
 </div>
+<%= link_to 'Edit', edit_project_value_set_path(@project, @value_set) %> |
+<%= link_to 'Back', project_value_set_path(@project, @value_set) %>
