@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :value do
     value 1
-    value_set nil
+    value_set
+    element
   end
 end

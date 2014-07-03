@@ -1,12 +1,20 @@
-<td width="8%" align="center" valign="top">
-    <% element = value.element  %>
 
-    <% if !element.nil? %>
-        <div id="value">
-        <div id="<%= element.name %>" style="height:200px;"></div>
+ <td width="8%" align="center" valign="top">
+    <% element = value.element  %>
+    <% name = element.name %>
+    <% amount = "amount_" + name %>
+
+    <script>
+      pp_slider("<%= name %>", "<%= value.value %>", <%= @enabled %>)
+    </script>
+
+    <div id="value">
+        <div id="<%= name %>" style="height:200px;"></div>
         <p>
-          <lable for:"<%= element.name %>"><%= t element.name %></lable>
+          <lable for:"<%= name %>"><%= t name %></lable>
         </p>
-        </div>
-     <% end %>
-  </td>
+        <p>
+            <input type="text" id="<%= amount %>" name=<%= name %> readonly style="border:0; color:#f6931f; font-weight:bold;" value=<%= value.value %>>
+        </p>
+    </div>
+ </td>

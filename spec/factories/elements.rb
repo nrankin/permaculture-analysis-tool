@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :element do
-    element_type ""
+    element_type "Principle"
     name "MyString"
   end
 end
