@@ -1,7 +1,7 @@
 <%= form_for [@project, @value_set] do |f| %>
     <% if @value_set.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@value_set.errors.count, "error") %> prohibited this value_set from being saved:</h2>
+          <h2><%= pluralize(@value_set.errors.count, "error") %><%=  t('snapshot.error.list') %></h2>
 
           <ul>
             <% @value_set.errors.full_messages.each do |message| %>

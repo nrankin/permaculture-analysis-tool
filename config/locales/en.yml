@@ -20,7 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   ObserveAndInteract: "Observe & Interact"
   CatchAndStoreEnergy: "Catch & Store Energy"
   ObtainAYield: "Obtain A Yield"
@@ -33,3 +32,28 @@ en:
   UseAndValueDiverstiy: "Use & Value Diverstiy"
   UseEdgesAndValueTheMarginal: "UseEdges & Value The Marginal"
   CreativelyUseAndRespondToChange: "Creatively Use & Respond To Change"
+  project:
+     success:
+        update: 'Project was successfully updated.'
+        destroy: 'Project was successfully destroyed.'
+        create: 'Project was successfully created.'
+     edit: 'Editing Project'
+     new: 'New Project'
+     index: 'Project Listing'
+     error:
+        list: 'prohibited this Project from being saved:'
+     name: 'Project Name:'
+  snapshot:
+    success:
+       update: 'Snapshot was successfully updated.'
+    name: 'Snapshot Name:'
+    initial:
+        name: 'Project Inception'
+    date: 'Snapshot Date:'
+    edit: 'Editing Snapshot'
+    error:
+      list: 'prohibited this Snapshot from being saved:'
+  edit: 'Edit'
+  back: 'Back'
+  show: 'Show'
+  destroy: 'Destroy'

@@ -1,8 +1,8 @@
 
 <div id="value_set">
   <%= render 'value_sets/head' %>
-  <strong>Snapshot Name: </strong><%= @value_set.name %>
+  <strong><%= t('snapshot.name') %></strong><%= @value_set.name %>
   <%= render 'value_sets/value_set_table' %>
 </div>
-<%= link_to 'Edit', edit_project_value_set_path(@project, @value_set) %> |
-<%= link_to 'Back', project_value_set_path(@project, @value_set) %>
+<%= link_to t('edit'), edit_project_value_set_path(@project, @value_set) %> |
+<%= link_to t('back'), project_value_set_path(@project, @value_set) %>

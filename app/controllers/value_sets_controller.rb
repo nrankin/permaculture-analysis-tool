@@ -14,7 +14,7 @@ class ValueSetsController < ApplicationController
     update_values
     respond_to do |format|
       if @value_set.update(value_set_params)
-        format.html { redirect_to [@project, @value_set], notice: 'Snapshot was successfully updated.' }
+        format.html { redirect_to [@project, @value_set], notice: t('snapshot.success.update') }
         format.json { render :show, status: :ok, location: @value_set }
       else
         format.html { render :edit }
