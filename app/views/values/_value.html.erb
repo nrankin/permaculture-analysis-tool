@@ -1,9 +1,8 @@
 
  <td width="8%" align="center" valign="top">
-    <% element = value.element  %>
-    <% name = element.name %>
+    <% name = value.element.name %>
     <% amount = "amount_" + name %>
-
+    <% @enabled ||= false %>
     <script>
       pp_slider("<%= name %>", "<%= value.value %>", <%= @enabled %>)
     </script>
