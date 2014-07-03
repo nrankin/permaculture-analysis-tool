@@ -23,28 +23,26 @@ class ValueSetsController < ApplicationController
     end
   end
 
-  def update_values
-    if params[:ObserveAndInteract].nil?
-      logger.error "first value param nil - probably means the rest are too"
-    else
-      if @value_set.values.first.update({:value => params[:ObserveAndInteract]})
-        logger.debug  "first value updated successfully: " + @value_set.values.first.value.to_s
-      else
-        logger.error "first value param not updated"
-      end
-      if  @value_set.values.find_by(element_id: 2).update({:value => params[:CatchAndStoreEnergy]})
-        logger.debug "second value updated successfully: " + @value_set.values.find_by(element_id: 2).value.to_s
-      else
-        logger.error "second value param not updated"
-      end
-    end
-  end
-
   def edit
     @enabled = true
   end
 
   private
+
+  def update_values
+    if params[:values].nil?
+      logger.error "no values came through in the params"
+    else
+      params[:values].each do |key, value|
+        element_id = Element.find_by(name: key).id
+        if @value_set.values.find_by(element_id: element_id).update({:value => value.to_param})
+          logger.debug  key.to_s + " updated successfully to " + value.to_param
+        else
+          logger.error "value param not updated, something went wrong"
+        end
+      end
+    end
+  end
 
   def set_value_set
     @value_set = ValueSet.find(params[:id])
@@ -56,7 +54,10 @@ class ValueSetsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def value_set_params
-    params.require(:value_set).permit(:name, :snapshot, :ObserveAndInteract, :CatchAndStoreEnergy, :ObtainAYield, :ApplySelfRegulationAndAcceptFeedback, :UseAndValueRenewableResourcesAndServices, :ProduceNoWaste, :DesignFromPatternsToDetails, :IntegrateRatherThanSegregate, :UseSmallAndSlowSolutions, :UseAndValueDiverstiy, :UseEdgesAndValueTheMarginal, :CreativelyUseAndRespondToChange)
+    params.require(:value_set).permit(:name, :snapshot)
+  end
+  def values_params
+    params.require(:values).permit(:ObserveAndInteract, :CatchAndStoreEnergy, :ObtainAYield, :ApplySelfRegulationAndAcceptFeedback, :UseAndValueRenewableResourcesAndServices, :ProduceNoWaste, :DesignFromPatternsToDetails, :IntegrateRatherThanSegregate, :UseSmallAndSlowSolutions, :UseAndValueDiverstiy, :UseEdgesAndValueTheMarginal, :CreativelyUseAndRespondToChange)
   end
 
 end

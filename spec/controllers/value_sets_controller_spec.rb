@@ -46,7 +46,7 @@ RSpec.describe ValueSetsController, :type => :controller do
    }
    it "updates the requested value set" do
 
-     put :update, {:project_id => @project.to_param, :id => @value_set.to_param, :value_set => new_attributes, :ObserveAndInteract => 20, :CatchAndStoreEnergy => 80 }, valid_session
+     put :update, {:project_id => @project.to_param, :id => @value_set.to_param, :value_set => new_attributes, :values => {:ObserveAndInteract => 20, :CatchAndStoreEnergy => 80} }, valid_session
      @value_set.reload
      expect(@value_set.values.first.value).to eql(20)
      expect(@value_set.values.find_by(element_id: 2).value).to eql(80)
