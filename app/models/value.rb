@@ -1,9 +1,10 @@
 class Value < ActiveRecord::Base
   belongs_to :snapshot
-  belongs_to :element
-  def element_name(value)
-     if value.element.exists?
-       value.element.name
+  belongs_to :principle
+
+  def principle_name(value)
+     if value.principle.exists?
+       value.principle.name
      end
 
   end

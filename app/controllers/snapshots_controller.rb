@@ -34,8 +34,8 @@ class SnapshotsController < ApplicationController
       logger.error "no values came through in the params"
     else
       params[:values].each do |key, value|
-        element_id = Element.find_by(name: key).id
-        if @snapshot.values.find_by(element_id: element_id).update({:value => value.to_param})
+        principle_id = Principle.find_by(name: key).id
+        if @snapshot.values.find_by(principle_id: principle_id).update({:value => value.to_param})
           logger.debug  key.to_s + " updated successfully to " + value.to_param
         else
           logger.error "value param not updated, something went wrong"

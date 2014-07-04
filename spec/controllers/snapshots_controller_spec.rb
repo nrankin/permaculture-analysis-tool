@@ -5,10 +5,10 @@ RSpec.describe SnapshotsController, :type => :controller do
   before(:each) do
     @project = FactoryGirl.create(:project)
     @snapshot = FactoryGirl.create(:snapshot, name: "set name", project: @project)
-    @element1 = FactoryGirl.create(:element, name:'ObserveAndInteract', id: 1, element_type: 'Principle')
-    @value1 = FactoryGirl.create(:value, snapshot: @snapshot, element: @element1, value: 45)
-    @element2 = FactoryGirl.create(:element, name:'CatchAndStoreEnergy', id: 2, element_type: 'Principle')
-    @value2 = FactoryGirl.create(:value, snapshot: @snapshot, element: @element2, value: 30)
+    @principle1 = FactoryGirl.create(:principle, name:'ObserveAndInteract', id: 1, principle_type: 'Principle')
+    @value1 = FactoryGirl.create(:value, snapshot: @snapshot, principle: @principle1, value: 45)
+    @principle2 = FactoryGirl.create(:principle, name:'CatchAndStoreEnergy', id: 2, principle_type: 'Principle')
+    @value2 = FactoryGirl.create(:value, snapshot: @snapshot, principle: @principle2, value: 30)
   end
  let(:valid_attributes) {
    {'name' => 'Project Inception'}
@@ -49,7 +49,7 @@ RSpec.describe SnapshotsController, :type => :controller do
      put :update, {:project_id => @project.to_param, :id => @snapshot.to_param, :snapshot => new_attributes, :values => {:ObserveAndInteract => 20, :CatchAndStoreEnergy => 80} }, valid_session
      @snapshot.reload
      expect(@snapshot.values.first.value).to eql(20)
-     expect(@snapshot.values.find_by(element_id: 2).value).to eql(80)
+     expect(@snapshot.values.find_by(principle_id: 2).value).to eql(80)
    end
  end
 end

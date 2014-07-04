@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704045150) do
+ActiveRecord::Schema.define(version: 20140704061849) do
 
-  create_table "elements", force: true do |t|
+  create_table "principles", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "element_type"
+    t.string   "principle_type"
   end
 
   create_table "projects", force: true do |t|
@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 20140704045150) do
     t.integer  "snapshot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "element_id"
+    t.integer  "principle_id"
   end
 
-  add_index "values", ["element_id"], name: "index_values_on_element_id"
+  add_index "values", ["principle_id"], name: "index_values_on_principle_id"
   add_index "values", ["snapshot_id"], name: "index_values_on_snapshot_id"
 
 end

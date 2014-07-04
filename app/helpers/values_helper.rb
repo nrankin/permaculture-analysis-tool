@@ -1,5 +1,5 @@
 module ValuesHelper
-  def get_element(value)
-    Element.find(value.element_id )
+  def get_principle(value)
+    Principle.find(value.principle_id )
   end
 end

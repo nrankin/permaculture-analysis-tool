@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :value do
     value 1
     snapshot
-    element
+    principle
   end
 end

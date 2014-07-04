@@ -5,15 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-elements = Element.create([{name: 'ObserveAndInteract', element_type:'Principle'},
-                          {name: 'CatchAndStoreEnergy', element_type:'Principle'},
-                          {name: 'ObtainAYield', element_type: 'Principle'},
-                          {name: 'ApplySelfRegulationAndAcceptFeedback', element_type: 'Principle'},
-                          {name: 'UseAndValueRenewableResourcesAndServices', element_type: 'Principle'},
-                          {name: 'ProduceNoWaste', element_type:'Principle' },
-                          {name: 'DesignFromPatternsToDetails', element_type:'Principle'},
-                          {name: 'IntegrateRatherThanSegregate', element_type:'Principle'},
-                          {name: 'UseSmallAndSlowSolutions', element_type:'Principle'},
-                          {name: 'UseAndValueDiverstiy', element_type: 'Principle'},
-                          {name: 'UseEdgesAndValueTheMarginal', element_type: 'Principle'},
-                          {name: 'CreativelyUseAndRespondToChange', element_type: 'Principle'}])
+principles = Principle.create([{name: 'ObserveAndInteract', principle_type:'Design'},
+                          {name: 'CatchAndStoreEnergy', principle_type:'Design'},
+                          {name: 'ObtainAYield', principle_type: 'Design'},
+                          {name: 'ApplySelfRegulationAndAcceptFeedback', principle_type: 'Design'},
+                          {name: 'UseAndValueRenewableResourcesAndServices', principle_type: 'Design'},
+                          {name: 'ProduceNoWaste', principle_type:'Design' },
+                          {name: 'DesignFromPatternsToDetails', principle_type:'Design'},
+                          {name: 'IntegrateRatherThanSegregate', principle_type:'Design'},
+                          {name: 'UseSmallAndSlowSolutions', principle_type:'Design'},
+                          {name: 'UseAndValueDiverstiy', principle_type: 'Design'},
+                          {name: 'UseEdgesAndValueTheMarginal', principle_type: 'Design'},
+                          {name: 'CreativelyUseAndRespondToChange', principle_type: 'Design'}])
