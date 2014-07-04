@@ -83,12 +83,12 @@ RSpec.describe ProjectsController, :type => :controller do
 
       it "creates an initial value set for the project" do
         post :create, {:project => valid_attributes}, valid_session
-        expect(assigns(:project).value_sets).to_not be_nil
+        expect(assigns(:project).snapshots).to_not be_nil
       end
       it "creates a default set of values for the projects initial value set" do
         FactoryGirl.create_list(:element, 12)
         post :create, {:project => valid_attributes}, valid_session
-        expect(assigns(:project).value_sets.first.values.count).to eq(12)
+        expect(assigns(:project).snapshots.first.values.count).to eq(12)
       end
 
       it "redirects to the created project" do

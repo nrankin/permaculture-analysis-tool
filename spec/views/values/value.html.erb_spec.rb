@@ -9,4 +9,5 @@ RSpec.describe "values/_value", :type => :view do
     render @value
     expect(rendered).to include('Observe &amp; Interact')
   end
+  pending it "should have a slider for 'Observe & Interact'"
 end

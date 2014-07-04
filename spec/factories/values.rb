@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :value do
     value 1
-    value_set
+    snapshot
     element
   end
 end

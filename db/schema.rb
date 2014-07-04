@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625234925) do
+ActiveRecord::Schema.define(version: 20140704045150) do
 
   create_table "elements", force: true do |t|
     t.string   "name"
@@ -26,25 +26,25 @@ ActiveRecord::Schema.define(version: 20140625234925) do
     t.datetime "updated_at"
   end
 
-  create_table "value_sets", force: true do |t|
+  create_table "snapshots", force: true do |t|
     t.string   "name"
     t.integer  "project_id"
-    t.datetime "snapshot"
+    t.datetime "snapshot_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "value_sets", ["project_id"], name: "index_value_sets_on_project_id"
+  add_index "snapshots", ["project_id"], name: "index_snapshots_on_project_id"
 
   create_table "values", force: true do |t|
     t.integer  "value"
-    t.integer  "value_set_id"
+    t.integer  "snapshot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "element_id"
   end
 
   add_index "values", ["element_id"], name: "index_values_on_element_id"
-  add_index "values", ["value_set_id"], name: "index_values_on_value_set_id"
+  add_index "values", ["snapshot_id"], name: "index_values_on_snapshot_id"
 
 end

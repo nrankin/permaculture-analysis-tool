@@ -1,7 +1,7 @@
-class ValueSetsController < ApplicationController
-  include ValueSetMaker
+class SnapshotsController < ApplicationController
+  include SnapshotsMaker
   include ActiveModel::ForbiddenAttributesProtection
-  before_action :set_value_set
+  before_action :set_snapshot
   before_action :set_project
 
   def show
@@ -13,12 +13,12 @@ class ValueSetsController < ApplicationController
 
     update_values
     respond_to do |format|
-      if @value_set.update(value_set_params)
-        format.html { redirect_to [@project, @value_set], notice: t('snapshot.success.update') }
-        format.json { render :show, status: :ok, location: @value_set }
+      if @snapshot.update(snapshot_params)
+        format.html { redirect_to [@project, @snapshot], notice: t('snapshot.success.update') }
+        format.json { render :show, status: :ok, location: @snapshot }
       else
         format.html { render :edit }
-        format.json { render json: @value_set.errors, status: :unprocessable_entity }
+        format.json { render json: @snapshot.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -35,7 +35,7 @@ class ValueSetsController < ApplicationController
     else
       params[:values].each do |key, value|
         element_id = Element.find_by(name: key).id
-        if @value_set.values.find_by(element_id: element_id).update({:value => value.to_param})
+        if @snapshot.values.find_by(element_id: element_id).update({:value => value.to_param})
           logger.debug  key.to_s + " updated successfully to " + value.to_param
         else
           logger.error "value param not updated, something went wrong"
@@ -44,17 +44,17 @@ class ValueSetsController < ApplicationController
     end
   end
 
-  def set_value_set
-    @value_set = ValueSet.find(params[:id])
+  def set_snapshot
+    @snapshot = Snapshot.find(params[:id])
   end
 
   def set_project
-    @project =  @value_set.project
+    @project =  @snapshot.project
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def value_set_params
-    params.require(:value_set).permit(:name, :snapshot)
+  def snapshot_params
+    params.require(:snapshot).permit(:name, :snapshot)
   end
   def values_params
     params.require(:values).permit(:ObserveAndInteract, :CatchAndStoreEnergy, :ObtainAYield, :ApplySelfRegulationAndAcceptFeedback, :UseAndValueRenewableResourcesAndServices, :ProduceNoWaste, :DesignFromPatternsToDetails, :IntegrateRatherThanSegregate, :UseSmallAndSlowSolutions, :UseAndValueDiverstiy, :UseEdgesAndValueTheMarginal, :CreativelyUseAndRespondToChange)

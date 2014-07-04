@@ -1,7 +1,7 @@
 FactoryGirl.define do
-  factory :value_set do
+  factory :snapshot do
     project
     name "Inception"
-    snapshot "2014-06-20 13:02:08"
+    snapshot_time "2014-06-20 13:02:08"
   end
 end

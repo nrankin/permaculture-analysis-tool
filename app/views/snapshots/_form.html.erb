@@ -1,10 +1,10 @@
-<%= form_for [@project, @value_set] do |f| %>
-    <% if @value_set.errors.any? %>
+<%= form_for [@project, @snapshot] do |f| %>
+    <% if @snapshot.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@value_set.errors.count, "error") %><%=  t('snapshot.error.list') %></h2>
+          <h2><%= pluralize(@snapshot.errors.count, "error") %><%=  t('snapshot.error.list') %></h2>
 
           <ul>
-            <% @value_set.errors.full_messages.each do |message| %>
+            <% @snapshot.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
             <% end %>
           </ul>
@@ -15,7 +15,7 @@
       <%= f.text_field :name %><br>
     </div>
 
-    <%= render 'value_set_table' %>
+    <%= render 'snapshot_table' %>
 
     <div class="actions">
       <%= f.submit %>

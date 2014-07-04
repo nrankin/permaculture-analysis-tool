@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  has_many :value_sets, :dependent => :destroy
-  has_many :values, through: :value_sets
+  has_many :snapshots, :dependent => :destroy
+  has_many :values, through: :snapshots
   validates :name, presence: true
 end

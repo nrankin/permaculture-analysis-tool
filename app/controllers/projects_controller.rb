@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   include ProjectsHelper
-  include ValueSetMaker
+  include SnapshotsMaker
   include ActiveModel::ForbiddenAttributesProtection
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
 
-        create_initial_value_set(@project)
+        create_initial_snapshot(@project)
 
         format.html { redirect_to @project, notice: t('project.success.create') }
         format.json { render :show, status: :created, location: @project }
@@ -76,8 +76,8 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
-    def get_value_set
-      @value_set = latest_value_set(@project)
+    def get_snapshot
+      @snapshot = latest_snapshot(@project)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

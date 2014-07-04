@@ -49,7 +49,7 @@ en:
     name: 'Snapshot Name:'
     initial:
         name: 'Project Inception'
-    date: 'Snapshot Date:'
+    time: 'Snapshot Time:'
     edit: 'Editing Snapshot'
     error:
       list: 'prohibited this Snapshot from being saved:'
