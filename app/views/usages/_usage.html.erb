@@ -1,19 +1,19 @@
 
  <td width="8%" align="center" valign="top">
-    <% name = value.principle.name %>
+    <% name = usage.principle.name %>
     <% amount = "amount_" + name %>
     <% @enabled ||= false %>
     <script>
-      pp_slider("<%= name %>", "<%= value.value %>", <%= @enabled %>)
+      pp_slider("<%= name %>", "<%= usage.value %>", <%= @enabled %>)
     </script>
 
-    <div id="value">
+    <div id="usage">
         <div id="<%= name %>" style="height:200px;"></div>
         <p>
           <lable for:"<%= name %>"><%= t name %></lable>
         </p>
         <p>
-            <input type="hidden" id="<%= amount %>" name="values[<%= name %>][]" readonly style="border:0; color:#f6931f; font-weight:bold;" value=<%= value.value %>>
+            <input type="hidden" id="<%= amount %>" name="usages[<%= name %>][]" readonly style="border:0; color:#f6931f; font-weight:bold;" value=<%= usage.value %>>
         </p>
     </div>
  </td>

@@ -1,3 +1,3 @@
 class Principle < ActiveRecord::Base
-  has_many :values
+  has_many :usages
 end

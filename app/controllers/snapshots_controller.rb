@@ -11,7 +11,7 @@ class SnapshotsController < ApplicationController
 
   def update
 
-    update_values
+    update_usages
     respond_to do |format|
       if @snapshot.update(snapshot_params)
         format.html { redirect_to [@project, @snapshot], notice: t('snapshot.success.update') }
@@ -29,16 +29,18 @@ class SnapshotsController < ApplicationController
 
   private
 
-  def update_values
-    if params[:values].nil?
-      logger.error "no values came through in the params"
+  def update_usages
+    #FIXME should be using usages_params here doh
+    if params[:usages].nil?
+      logger.error "no usages came through in the params"
     else
-      params[:values].each do |key, value|
+      #FIXME should be using usages_params here doh
+      params[:usages].each do |key, value|
         principle_id = Principle.find_by(name: key).id
-        if @snapshot.values.find_by(principle_id: principle_id).update({:value => value.to_param})
+        if @snapshot.usages.find_by(principle_id: principle_id).update({:value => value.to_param})
           logger.debug  key.to_s + " updated successfully to " + value.to_param
         else
-          logger.error "value param not updated, something went wrong"
+          logger.error "usage param not updated, something went wrong"
         end
       end
     end
@@ -56,8 +58,8 @@ class SnapshotsController < ApplicationController
   def snapshot_params
     params.require(:snapshot).permit(:name, :snapshot)
   end
-  def values_params
-    params.require(:values).permit(:ObserveAndInteract, :CatchAndStoreEnergy, :ObtainAYield, :ApplySelfRegulationAndAcceptFeedback, :UseAndValueRenewableResourcesAndServices, :ProduceNoWaste, :DesignFromPatternsToDetails, :IntegrateRatherThanSegregate, :UseSmallAndSlowSolutions, :UseAndValueDiverstiy, :UseEdgesAndValueTheMarginal, :CreativelyUseAndRespondToChange)
+  def usages_params
+    params.require(:usages).permit(:ObserveAndInteract, :CatchAndStoreEnergy, :ObtainAYield, :ApplySelfRegulationAndAcceptFeedback, :UseAndValueRenewableResourcesAndServices, :ProduceNoWaste, :DesignFromPatternsToDetails, :IntegrateRatherThanSegregate, :UseSmallAndSlowSolutions, :UseAndValueDiverstiy, :UseEdgesAndValueTheMarginal, :CreativelyUseAndRespondToChange)
   end
 
 end

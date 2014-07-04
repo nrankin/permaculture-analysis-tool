@@ -81,14 +81,14 @@ RSpec.describe ProjectsController, :type => :controller do
         expect(assigns(:project)).to be_persisted
       end
 
-      it "creates an initial value set for the project" do
+      it "creates an initial usage set for the project" do
         post :create, {:project => valid_attributes}, valid_session
         expect(assigns(:project).snapshots).to_not be_nil
       end
-      it "creates a default set of values for the projects initial value set" do
+      it "creates a default set of usages for the projects initial usage set" do
         FactoryGirl.create_list(:principle, 12)
         post :create, {:project => valid_attributes}, valid_session
-        expect(assigns(:project).snapshots.first.values.count).to eq(12)
+        expect(assigns(:project).snapshots.first.usages.count).to eq(12)
       end
 
       it "redirects to the created project" do

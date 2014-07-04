@@ -1,4 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe ValuesController, :type => :controller do
+RSpec.describe UsagesController, :type => :controller do
 end

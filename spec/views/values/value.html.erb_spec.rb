@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "values/_value", :type => :view do
+RSpec.describe "usages/_usage", :type => :view do
   before(:each) do
     @principle = assign(:principle, FactoryGirl.build(:principle, name:'ObserveAndInteract', id: 1, principle_type: 'Principle'))
-    @value = assign(:value, FactoryGirl.build(:value, principle: @principle, value: 45))
+    @usage = assign(:usage, FactoryGirl.build(:usage, principle: @principle, value: 45))
   end
   it "should display 'Observe & Interact'" do
-    render @value
+    render @usage
     expect(rendered).to include('Observe &amp; Interact')
   end
   pending it "should have a slider for 'Observe & Interact'"

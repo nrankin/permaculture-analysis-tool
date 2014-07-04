@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704061849) do
+ActiveRecord::Schema.define(version: 20140704063837) do
 
   create_table "principles", force: true do |t|
     t.string   "name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140704061849) do
 
   add_index "snapshots", ["project_id"], name: "index_snapshots_on_project_id"
 
-  create_table "values", force: true do |t|
+  create_table "usages", force: true do |t|
     t.integer  "value"
     t.integer  "snapshot_id"
     t.datetime "created_at"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140704061849) do
     t.integer  "principle_id"
   end
 
-  add_index "values", ["principle_id"], name: "index_values_on_principle_id"
-  add_index "values", ["snapshot_id"], name: "index_values_on_snapshot_id"
+  add_index "usages", ["principle_id"], name: "index_usages_on_principle_id"
+  add_index "usages", ["snapshot_id"], name: "index_usages_on_snapshot_id"
 
 end

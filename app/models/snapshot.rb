@@ -1,5 +1,5 @@
 class Snapshot < ActiveRecord::Base
   belongs_to :project
-  has_many :values, :dependent => :destroy
-  has_many :principles, through: :values
+  has_many :usages, :dependent => :destroy
+  has_many :principles, through: :usages
 end

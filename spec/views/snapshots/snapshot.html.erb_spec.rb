@@ -7,12 +7,12 @@ RSpec.describe "snapshots/_snapshot", :type => :view do
     assign(:project, @snapshot.project)
   end
 
-  it "renders the value set snapshot date" do
+  it "renders the usage snapshot date" do
     render
     expect(rendered).to include(SNAPSHOT_DATE.strftime("%F"))
   end
 
-  it "renders the value set snapshot time" do
+  it "renders the usage snapshot time" do
     render
     expect(rendered).to include(SNAPSHOT_DATE.strftime("%T"))
   end
