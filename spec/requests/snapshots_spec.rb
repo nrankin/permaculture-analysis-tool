@@ -6,6 +6,7 @@ RSpec.describe "ValueSets", :type => :request do
     @snapshot = FactoryGirl.create(:snapshot)
 
   end
+
   describe "GET /project/snapshot" do
     it "works! (now write some real specs)" do
       get project_snapshot_path @snapshot.project,@snapshot
