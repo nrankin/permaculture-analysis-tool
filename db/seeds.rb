@@ -14,6 +14,6 @@ principles = Principle.create([{name: 'ObserveAndInteract', principle_type:'Desi
                           {name: 'DesignFromPatternsToDetails', principle_type:'Design'},
                           {name: 'IntegrateRatherThanSegregate', principle_type:'Design'},
                           {name: 'UseSmallAndSlowSolutions', principle_type:'Design'},
-                          {name: 'UseAndValueDiverstiy', principle_type: 'Design'},
+                          {name: 'UseAndValueDiversity', principle_type: 'Design'},
                           {name: 'UseEdgesAndValueTheMarginal', principle_type: 'Design'},
                           {name: 'CreativelyUseAndRespondToChange', principle_type: 'Design'}])
