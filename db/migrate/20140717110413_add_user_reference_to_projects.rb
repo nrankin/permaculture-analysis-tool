@@ -1,5 +1,5 @@
 class AddUserReferenceToProjects < ActiveRecord::Migration
   def change
-    add_column :projects, :user_id, :reference
+    add_reference :projects, :user, index: true
   end
 end

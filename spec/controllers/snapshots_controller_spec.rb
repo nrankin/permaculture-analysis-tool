@@ -3,7 +3,11 @@ require 'rails_helper'
 RSpec.describe SnapshotsController, :type => :controller do
 
   before(:each) do
-    @project = FactoryGirl.create(:project)
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    @user = FactoryGirl.create(:user)
+    sign_in @user
+
+    @project = FactoryGirl.create(:project, user: @user)
     @snapshot = FactoryGirl.create(:snapshot, name: "set name", project: @project)
     @principle1 = FactoryGirl.create(:principle, name:'ObserveAndInteract', id: 1, principle_type: 'Principle')
     @usage1 = FactoryGirl.create(:usage, snapshot: @snapshot, principle: @principle1, value: 45)
@@ -18,11 +22,9 @@ RSpec.describe SnapshotsController, :type => :controller do
 
    describe "GET edit" do
      it "assigns the requested snapshot as @snapshot" do
-       project = Project.create! :name => "Valid Project"
-       snapshot = Snapshot.create! :name => "Snapshot Name", :project => project, :snapshot_time => DateTime.new(2014,06,22,1,0,5)
 
-       get :edit, {:project_id =>  project.to_param, :id => snapshot.to_param}, valid_session
-       expect(assigns(:snapshot)).to eq(snapshot)
+       get :edit, {:project_id =>  @project.to_param, :id => @snapshot.to_param}, valid_session
+       expect(assigns(:snapshot)).to eq(@snapshot)
      end
    end
  describe "PUT update" do

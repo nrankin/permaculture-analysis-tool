@@ -1,8 +1,12 @@
 require 'rails_helper'
+include Warden::Test::Helpers
+Warden.test_mode!
 
-RSpec.describe "ValueSets", :type => :request do
+RSpec.describe "Snapshots", :type => :request do
 
   before(:each) do
+    @user = FactoryGirl.create(:user)
+    login_as(@user, :scope => :user)
     @snapshot = FactoryGirl.create(:snapshot)
 
   end

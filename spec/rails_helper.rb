@@ -62,4 +62,8 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  #For devise authentication in rspec
+  config.include Devise::TestHelpers, :type => :controller
+
 end

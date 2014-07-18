@@ -1,7 +1,10 @@
 require 'rails_helper'
+include Warden::Test::Helpers
+Warden.test_mode!
 
 feature 'usages of principles are displayed' do
   before(:each) do
+    #less than ideal, but I really want to check that 12 sliders will be displayed
     FactoryGirl.create(:principle, name: :ObserveAndInteract)
     FactoryGirl.create(:principle, name: :CatchAndStoreEnergy)
     FactoryGirl.create(:principle, name: :ObtainAYield)
@@ -15,6 +18,12 @@ feature 'usages of principles are displayed' do
     FactoryGirl.create(:principle, name: :UseEdgesAndValueTheMarginal)
     FactoryGirl.create(:principle, name: :CreativelyUseAndRespondToChange)
   end
+
+  before(:each) do
+    @user = FactoryGirl.create(:user)
+    login_as(@user, :scope => :user)
+  end
+
   scenario 'a slider is displayed', :js => true do
     visit new_project_path
     fill_in 'project_name', :with => "newproject"
@@ -25,18 +34,10 @@ feature 'usages of principles are displayed' do
     visit new_project_path
     fill_in 'project_name', :with => 'newproject'
     click_button 'Create Project'
-    assert page.has_xpath?('//div[@id="ObserveAndInteract"]')
-    assert page.has_xpath?('//div[@id="CatchAndStoreEnergy"]')
-    assert page.has_xpath?('//div[@id="ObtainAYield"]')
-    assert page.has_xpath?('//div[@id="ApplySelfRegulationAndAcceptFeedback"]')
-    assert page.has_xpath?('//div[@id="UseAndValueRenewableResourcesAndServices"]')
-    assert page.has_xpath?('//div[@id="ProduceNoWaste"]')
-    assert page.has_xpath?('//div[@id="DesignFromPatternsToDetails"]')
-    assert page.has_xpath?('//div[@id="IntegrateRatherThanSegregate"]')
-    assert page.has_xpath?('//div[@id="UseSmallAndSlowSolutions"]')
-    assert page.has_xpath?('//div[@id="UseAndValueDiversity"]')
-    assert page.has_xpath?('//div[@id="UseEdgesAndValueTheMarginal"]')
-    assert page.has_xpath?('//div[@id="CreativelyUseAndRespondToChange"]')
-
+    #less than ideal to have multiple asserts in one scenario, but I really want to check that a slider will be displayed for each
+    # of the principles and for test suite speed I don't want to have to navigate to the page repeatedly to do them seperately
+    Principle.all.each do |principle|
+      assert page.has_xpath?('//div[@id="' + principle.name + '"]')
+    end
   end
 end
