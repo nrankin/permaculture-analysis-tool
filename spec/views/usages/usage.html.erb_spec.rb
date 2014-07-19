@@ -11,5 +11,4 @@ RSpec.describe "usages/_usage", :type => :view do
     render @usage
     expect(rendered).to include('Observe &amp; Interact')
   end
-  pending it "should have a slider for 'Observe & Interact'"
 end

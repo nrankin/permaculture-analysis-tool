@@ -11,5 +11,10 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe UsagesHelper, :type => :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'returns the Principle for the supplied usage' do
+    test_name = 'test_name'
+    principle = FactoryGirl.create(:principle, name: test_name)
+    usage = FactoryGirl.create(:usage, principle: principle)
+    expect(get_principle(usage).name).to eql(test_name)
+  end
 end

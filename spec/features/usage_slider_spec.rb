@@ -2,7 +2,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-feature 'usages of principles are displayed' do
+feature 'usages of principles are displayed by sliders' do
   before(:each) do
     #less than ideal, but I really want to check that 12 sliders will be displayed
     FactoryGirl.create(:principle, name: :ObserveAndInteract)
@@ -30,6 +30,7 @@ feature 'usages of principles are displayed' do
     click_button 'Create Project'
     expect(page).to have_content('Observe & Interact')
   end
+
   scenario 'all sliders are displayed' do
     visit new_project_path
     fill_in 'project_name', :with => 'newproject'
@@ -40,4 +41,10 @@ feature 'usages of principles are displayed' do
       assert page.has_xpath?('//div[@id="' + principle.name + '"]')
     end
   end
+
+  scenario 'sliders are disabled in view mode'
+
+  scenario 'sliders are enabled in edit mode'
+  scenario 'a sliders value can be updated'
+
 end
