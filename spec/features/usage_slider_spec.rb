@@ -42,7 +42,13 @@ feature 'usages of principles are displayed by sliders' do
     end
   end
 
-  scenario 'sliders are disabled in view mode'
+  scenario 'sliders are disabled in view mode', :js => true do
+    visit new_project_path
+    fill_in 'project_name', :with => 'newproject'
+    click_button 'Create Project'
+    # Capybara.default_selector = :xpath
+    page.assert_selector(:xpath, '//div[@id="usage"] | //div[@class="ui-slider-vertical" | @aria-disabled="true"]', :count => 12)
+  end
 
   scenario 'sliders are enabled in edit mode'
   scenario 'a sliders value can be updated'
