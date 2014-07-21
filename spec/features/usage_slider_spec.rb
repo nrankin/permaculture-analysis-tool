@@ -46,7 +46,6 @@ feature 'usages of principles are displayed by sliders' do
     visit new_project_path
     fill_in 'project_name', :with => 'newproject'
     click_button 'Create Project'
-    # Capybara.default_selector = :xpath
     page.assert_selector(:xpath, '//div[@id="usage"] | //div[@class="ui-slider-vertical" | @aria-disabled="true"]', :count => 12)
   end
 

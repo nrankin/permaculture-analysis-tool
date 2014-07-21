@@ -57,3 +57,8 @@ en:
   back: 'Back'
   show: 'Show'
   destroy: 'Destroy'
+  title: 'Permaculture Principles Analysis Tool'
+  login: 'Log In'
+  logout: 'Log Out'
+  signin: 'Sign in'
+  signout: 'Sign Out'
