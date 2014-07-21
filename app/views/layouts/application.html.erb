@@ -11,15 +11,18 @@
 </head>
 <body>
 <h1><%= t('title') %></h1>
+<h2><%= t('byline') %></h2>
 <% if user_signed_in? %>
     Logged in as <strong><%= current_user.email %></strong>.
     <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
+    <%= link_to t('profile.edit'), edit_user_registration_path %>
     <%= link_to t('project.index'), projects_path(current_user) %>
 <% else %>
     <% link_to t('signup'), new_user_registration_path %>
     <% link_to t('login'), new_user_session_path %>
 <% end %>
-
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <%= yield %>
 
 </body>

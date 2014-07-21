@@ -58,7 +58,10 @@ en:
   show: 'Show'
   destroy: 'Destroy'
   title: 'Permaculture Principles Analysis Tool'
+  byline: 'Raising the visibility of permaculture thinking'
   login: 'Log In'
   logout: 'Log Out'
   signin: 'Sign in'
   signout: 'Sign Out'
+  profile:
+    edit: 'Edit profile'
