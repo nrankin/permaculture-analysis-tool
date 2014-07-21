@@ -37,6 +37,8 @@ gem 'spring',        group: :development
 #authentication
 gem 'devise', '~> 3.2'
 
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
