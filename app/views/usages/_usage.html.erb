@@ -3,12 +3,14 @@
     <% name = usage.principle.name %>
     <% amount = "amount_" + name %>
     <% @enabled ||= false %>
+    <br>
     <script>
       pp_slider("<%= name %>", "<%= usage.value %>", <%= @enabled %>)
     </script>
 
     <div id="usage">
         <div id="<%= name %>" style="height:200px;"></div>
+        <br>
         <p>
           <lable for:"<%= name %>"><%= t name %></lable>
         </p>
