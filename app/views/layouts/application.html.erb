@@ -7,7 +7,7 @@
     <%= javascript_include_tag 'pp_slider.js', 'data-turbolinks-track' => true %>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield("Permies Rule") : t('title') %></title>
+    <title><%= content_for?(:title) ? yield(t('title')) : t('title') %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -61,8 +61,8 @@
                 <li><%= link_to t('profile.edit'), edit_user_registration_path %> </li>
                 <li><%= link_to t('logout'), destroy_user_session_path, method: :delete %> </li>
               <% else %>
-                  <% link_to t('signup'), new_user_registration_path, :class => 'navbar-link' %> &nbsp;|&nbsp;
-                  <% link_to t('login'), new_user_session_path, :class => 'navbar-link' %>
+                  <li><%= link_to t('signup'), new_user_registration_path %></li>
+                  <li><%= link_to t('login'), new_user_session_path %> </li>
               <% end %>
             </ul>
 

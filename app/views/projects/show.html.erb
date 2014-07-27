@@ -1,13 +1,15 @@
+<%- model_class = Project -%>
+<div class="dl-horizontal">
+  <h3><%=t '.title', :default => model_class.model_name.human.titleize %> <%= model_class.human_attribute_name(:name)%>: <%= @project.name %></h3>
+</div>
 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong><%= t('project.name') %></strong>
-  <%= @project.name %>
-  <%= link_to t('edit'), edit_project_path(@project) %> |
-  <%= link_to t('back'), projects_path %>
-</p>
-<% @snapshot =  latest_snapshot(@project) %>
-<%= render @snapshot %>
-
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              projects_path, :class => 'btn'  %>
+</div>
+<div id="snapshot">
+   <h3>Latest Project Snapshot</h3>
+  <% @snapshot =  latest_snapshot(@project) %>
+  <%= render @snapshot %>
+</div>
 

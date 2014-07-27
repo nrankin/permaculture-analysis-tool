@@ -1,8 +1,6 @@
 
 <div id="snapshot">
   <%= render 'snapshots/head' %>
-  <strong><%= t('snapshot.name') %></strong><%= @snapshot.name %>
+
   <%= render 'snapshots/snapshot_table' %>
 </div>
-<%= link_to t('edit'), edit_project_snapshot_path(@project, @snapshot) %> |
-<%= link_to t('back'), project_snapshot_path(@project, @snapshot) %>
