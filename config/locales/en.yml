@@ -16,6 +16,16 @@
 #
 # This would use the information in config/locales/es.yml.
 #
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
@@ -33,35 +43,36 @@ en:
   UseEdgesAndValueTheMarginal: "Use Edges & Value The Marginal"
   CreativelyUseAndRespondToChange: "Creatively Use & Respond To Change"
   project:
-     success:
-        update: 'Project was successfully updated.'
-        destroy: 'Project was successfully destroyed.'
-        create: 'Project was successfully created.'
-     edit: 'Editing Project'
-     new: 'New Project'
-     index: 'Project Listing'
-     error:
-        list: 'prohibited this Project from being saved:'
-     name: 'Project Name:'
+    success:
+      update: "Project was successfully updated."
+      destroy: "Project was successfully destroyed."
+      create: "Project was successfully created."
+    edit: "Editing Project"
+    new: "New Project"
+    index: "Project Listing"
+    error:
+      list: "prohibited this Project from being saved:"
+    name: "Project Name:"
   snapshot:
     success:
-       update: 'Snapshot was successfully updated.'
-    name: 'Snapshot Name:'
+      update: "Snapshot was successfully updated."
+    name: "Snapshot Name:"
     initial:
-        name: 'Project Inception'
-    time: 'Snapshot Time:'
-    edit: 'Editing Snapshot'
+      name: "Project Inception"
+    time: "Snapshot Time:"
+    edit: "Editing Snapshot"
     error:
-      list: 'prohibited this Snapshot from being saved:'
-  edit: 'Edit'
-  back: 'Back'
-  show: 'Show'
-  destroy: 'Destroy'
-  title: 'Permaculture Principles Analysis Tool'
-  byline: 'Raising the visibility of permaculture thinking'
-  login: 'Log In'
-  logout: 'Log Out'
-  signin: 'Sign in'
-  signout: 'Sign Out'
+      list: "prohibited this Snapshot from being saved:"
+  edit: "Edit"
+  back: "Back"
+  show: "Show"
+  destroy: "Destroy"
+  title: "Permaculture Principles Analysis Tool"
+  byline: "Raising the visibility of permaculture thinking"
+  login: "Log In"
+  logout: "Log Out"
+  signin: "Sign in"
+  signout: "Sign Out"
   profile:
-    edit: 'Edit profile'
+    edit: "Edit profile"
+  hello: "Hello world"

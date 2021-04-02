@@ -1,4 +1,4 @@
-class CreateValues < ActiveRecord::Migration
+class CreateValues < ActiveRecord::Migration[4.2]
   def change
     create_table :usages do |t|
       t.integer :value
